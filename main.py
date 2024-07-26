@@ -1,4 +1,5 @@
 from Machines.machine_objects import Machine
+from Machines.machine_database import MachineDatabase
 
 class Main:
     def __init__(self):
@@ -18,6 +19,9 @@ class Main:
                 inputValue = input(f'{self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':
                     self.is_running = False
+
+    def connect_to_machine(self, ip):
+        connected_machine = MachineDatabase.get_machine(ip)
 
 main = Main()
 main.run()

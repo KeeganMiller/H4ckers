@@ -1,8 +1,7 @@
 from machine_objects import Machine
 
 class MachineDatabase:
-    def __init__(self):
-        self.available_machines = ['127.0.0.1']
+    available_machines = ['127.0.0.1']
 
     @staticmethod
     def get_machine(self, ip) -> Machine:
