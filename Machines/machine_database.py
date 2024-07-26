@@ -1,7 +1,7 @@
 from machine_objects import Machine
 
 class MachineDatabase:
-    available_machines = ['127.0.0.1']
+    available_machines = []
 
     @staticmethod
     def get_machine(self, ip) -> Machine:

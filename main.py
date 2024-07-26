@@ -1,5 +1,6 @@
 from Machines.machine_objects import Machine
 from Machines.machine_database import MachineDatabase
+from FileSystem.file_manager import FileManager
 
 class Main:
     def __init__(self):
@@ -15,6 +16,7 @@ class Main:
                 name = input(f'Enter your hacker name: ')
                 self.hacker_name = name;
                 self.hacker_name_set = True
+                self.create_home_machine()
             else:
                 inputValue = input(f'{self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':
@@ -22,6 +24,12 @@ class Main:
 
     def connect_to_machine(self, ip):
         connected_machine = MachineDatabase.get_machine(ip)
+
+    def create_home_machine(self):
+        home_machine = Machine('127.0.0.1', FileManager.create_random_file_system())
+        MachineDatabase.available_machines.append(home_machine)
+        connected_machine = home_machine
+
 
 main = Main()
 main.run()
