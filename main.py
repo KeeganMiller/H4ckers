@@ -18,7 +18,10 @@ class Main:
                 self.hacker_name_set = True
                 self.create_home_machine()
             else:
-                inputValue = input(f'{self.hacker_name} $ ')
+                if(self.connected_machine == None):
+                    raise HomeMachineException('Failed to connect to a machine')
+                
+                inputValue = input(f'{self.connected_machine.machine_ip} ~ {self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':
                     self.is_running = False
 
@@ -33,3 +36,6 @@ class Main:
 
 main = Main()
 main.run()
+
+class HomeMachineException(Exception):
+    pass
