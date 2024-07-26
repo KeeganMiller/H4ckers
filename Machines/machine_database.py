@@ -1,4 +1,4 @@
-from machine_objects import Machine
+from Machines.machine_objects import Machine
 
 class MachineDatabase:
     available_machines = []

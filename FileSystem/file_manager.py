@@ -2,9 +2,9 @@ from FileSystem.file_objects import Folder, File
 
 class FileManager():
     def __init__(self, connected_ip):
-        self.connected_ip
-        self.current_folder
-        self.folder_elements
+        self.connected_ip = ''
+        self.current_folder = 'Home'
+        self.folder_elements = []
 
     def list_folders(self):
         self.current_folder.list_assets
@@ -12,7 +12,7 @@ class FileManager():
     # Creates a random file system for a machine
     # TODO: Make Random
     @staticmethod
-    def create_random_file_system(self, ip) -> __name__:
+    def create_random_file_system(ip) -> __name__:
         home = Folder('Home', '/Home/', '')
         folder_one = Folder('FolderOne', '/Home/FolderOne/', 'Home')
         subfolder_one = Folder('SubFolderOne', '/Home/FolderOne/SubFolderOne', 'FolderOne')

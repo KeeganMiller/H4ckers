@@ -19,7 +19,7 @@ class Main:
                 self.create_home_machine()
             else:
                 if(self.connected_machine == None):
-                    raise HomeMachineException('Failed to connect to a machine')
+                    raise Exception('Failed to connect to a machine')
                 
                 inputValue = input(f'{self.connected_machine.machine_ip} ~ {self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':
@@ -29,13 +29,10 @@ class Main:
         connected_machine = MachineDatabase.get_machine(ip)
 
     def create_home_machine(self):
-        home_machine = Machine('127.0.0.1', FileManager.create_random_file_system())
+        home_machine = Machine('127.0.0.1', FileManager.create_random_file_system('127.0.0.1'))
         MachineDatabase.available_machines.append(home_machine)
-        connected_machine = home_machine
+        self.connected_machine = home_machine
 
 
 main = Main()
 main.run()
-
-class HomeMachineException(Exception):
-    pass
