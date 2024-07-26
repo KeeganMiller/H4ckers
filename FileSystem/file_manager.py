@@ -1,4 +1,4 @@
-from file_objects import Folder
+from FileSystem.file_objects import Folder
 
 class FileManager():
     def __init__(self, connected_ip):
