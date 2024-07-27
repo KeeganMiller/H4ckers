@@ -27,11 +27,11 @@ class Main:
                     raise Exception('Failed to connect to a machine')
                 
                 # read the players input
-                inputValue = input(f'{self.connected_machine.machine_ip} ~ {self.hacker_name} $ ')
+                inputValue = input(f'{self.connected_machine.machine_ip}#{self.connected_machine.file_system.current_folder.name} ~ {self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':            # exit game if called
                     self.is_running = False
                 else:
-                    Command.send_command(string=inputValue)                 # send the command
+                    Command.send_command(string=inputValue, machine=self.connected_machine)                 # send the command
 
 
     def connect_to_machine(self, ip):

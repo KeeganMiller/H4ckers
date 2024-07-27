@@ -7,7 +7,7 @@ class FileManager():
         self.folder_elements = []
 
     def list_folders(self):
-        self.current_folder.list_assets
+        self.current_folder.list_assets()
 
     # Creates a random file system for a machine
     # TODO: Make Random

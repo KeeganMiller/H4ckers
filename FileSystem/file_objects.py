@@ -31,8 +31,5 @@ class Folder(FileObject):
         asset.parent_folder = self
 
     def list_assets(self):
-        for asset in self.folder_assets:
-            if(asset is Folder):
-                print(asset.name)
-            else:
-                print(f'{asset.name}.{asset.extension}')
+        print([asset.name if isinstance(asset, Folder) else asset.name + asset.extension
+               for asset in self.folder_assets])
