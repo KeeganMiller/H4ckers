@@ -2,19 +2,16 @@ from Applications.application import ApplicationDatabase
 from Applications.application import Application
 
 class Command:
+    @staticmethod
+    def send_command(string):
+        cmdStr: list = string.split(' ')
+        if cmdStr[0] == 'run':
+            Command.run_cmd(application=cmdStr[1], kwords=cmdStr)
 
-    def send_command(self, **kwargs):
-        match(kwargs['action']):
-            case 'run':
-                self.run_cmd(kwargs)
-
-    def run_cmd(self, **kwargs):
-        if 'application' in kwargs:
-            app: 'Application' = ApplicationDatabase.get_application(kwargs['application'])
-            if app != None:
-                app.run_app(kwargs)
-            else:
-                print(f'Application {kwargs['application']} does not exist')
+    def run_cmd(application: str, **kwargs):
+        app: 'Application' = ApplicationDatabase.get_application(application)
+        if app != None:
+            app.run_app(kwargs)
         else:
-            print(f"Application does not exist: {kwargs['application']}")
+            print(f'Application {application} does not exist')
         
