@@ -24,6 +24,9 @@ class Main:
                 inputValue = input(f'{self.connected_machine.machine_ip} ~ {self.hacker_name} $ ')
                 if inputValue == 'Exit' or inputValue == 'exit':
                     self.is_running = False
+                else:
+                    cmd = inputValue.split(' ')
+
 
     def connect_to_machine(self, ip):
         connected_machine = MachineDatabase.get_machine(ip)
